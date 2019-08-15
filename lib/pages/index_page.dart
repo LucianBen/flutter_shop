@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'page_cart.dart';
 import 'page_category.dart';
@@ -43,6 +44,7 @@ class _IndexPageState extends State<IndexPage> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
     return Scaffold(
       backgroundColor: Color.fromARGB(244, 245, 245, 1),
       bottomNavigationBar: BottomNavigationBar(
