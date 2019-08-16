@@ -32,7 +32,12 @@ class _IndexPageState extends State<IndexPage> {
     )
   ];
 
-  final List tabList = [HomePage(), CategoryPage(), CartPage(), MemberPage()];
+  final List<Widget> tabList = [
+    HomePage(),
+    CategoryPage(),
+    CartPage(),
+    MemberPage()
+  ];
   int currentIndex = 0;
   var currentPage;
 
@@ -58,7 +63,10 @@ class _IndexPageState extends State<IndexPage> {
           });
         },
       ),
-      body: currentPage,
+      body: IndexedStack(
+        index: currentIndex,
+        children: tabList,
+      ),
     );
   }
 }
