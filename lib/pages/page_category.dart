@@ -46,7 +46,7 @@ class _LeftCategoryNavigatorState extends State<LeftCategoryNavigator> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: ScreenUtil().setWidth(250),
+      width: ScreenUtil().setWidth(180),
       decoration: BoxDecoration(
           border: Border(right: BorderSide(color: Colors.black12, width: 1))),
       child: ListView.builder(
@@ -62,7 +62,7 @@ class _LeftCategoryNavigatorState extends State<LeftCategoryNavigator> {
     return InkWell(
       onTap: () {},
       child: Container(
-        height: ScreenUtil().setHeight(140),
+        height: ScreenUtil().setHeight(100),
         padding: EdgeInsets.only(left: 10, top: 15),
         decoration: BoxDecoration(
             color: Colors.white,
@@ -86,4 +86,6 @@ class _LeftCategoryNavigatorState extends State<LeftCategoryNavigator> {
       });
     });
   }
+
 }
+
