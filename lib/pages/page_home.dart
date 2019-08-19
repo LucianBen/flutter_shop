@@ -49,14 +49,6 @@ class _HomePageState extends State<HomePage>
             List<Map> floorContent2 = (data['data']['floor2'] as List).cast();
             List<Map> floorContent3 = (data['data']['floor3'] as List).cast();
             return EasyRefresh(
-              footer: ClassicalFooter(
-                bgColor: Colors.white,
-                textColor: Colors.pink,
-                infoColor: Colors.pink,
-                loadedText: '上拉加载',
-                noMoreText: '',
-                infoText: '加载中...',
-              ),
               header: ClassicalHeader(
                   bgColor: Colors.pink,
                   textColor: Colors.white,
@@ -65,6 +57,14 @@ class _HomePageState extends State<HomePage>
                   refreshText: '下拉加载',
                   refreshedText: '加载中...',
                   refreshReadyText: '放开即加载'),
+              footer: ClassicalFooter(
+                bgColor: Colors.white,
+                textColor: Colors.pink,
+                infoColor: Colors.pink,
+                loadedText: '上拉加载',
+                noMoreText: '',
+                infoText: '加载中...',
+              ),
               child: ListView(
                 children: <Widget>[
                   MySwiper(swiperDataList: swiper),
