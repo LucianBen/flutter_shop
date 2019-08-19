@@ -2,15 +2,17 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/provide/category_child.dart';
 import 'package:flutter_shop/provide/category_child_good.dart';
-import 'package:provide/provide.dart';
+import 'package:flutter_shop/provide/details_good.dart';
 import 'package:flutter_shop/router/base_router.dart';
+import 'package:provide/provide.dart';
 
 import 'pages/index_page.dart';
 
 void main() {
   var providers = Providers()
     ..provide(Provider<CategoryChild>.value(CategoryChild()))
-    ..provide(Provider<CategoryChildGood>.value(CategoryChildGood()));
+    ..provide(Provider<CategoryChildGood>.value(CategoryChildGood()))
+    ..provide(Provider<DetailsGoodProvider>.value(DetailsGoodProvider()));
 
   return runApp(ProviderNode(
     child: MyApp(),

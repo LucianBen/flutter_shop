@@ -12,7 +12,7 @@ class DetailsGoodProvider with ChangeNotifier {
     var formData = {'goodId': id};
     request('getGoodDetailById', formData: formData).then((val) {
       var data = json.decode(val.toString());
-      print("===请求商品详情数据=====\n"+data);
+//      print("===请求商品详情数据=====\n" + val.toString());
       goodInfo = DetailsModel.fromJson(data);
       notifyListeners();
     });
