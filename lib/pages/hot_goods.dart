@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shop/router/base_router.dart';
 
 /**
  *  火爆专区
@@ -42,7 +43,7 @@ class _HotGoodsState extends State<HotGoods> {
       List<Widget> listWidget = widget.hotGoodsList.map((val) {
         return InkWell(
           onTap: () {
-            print("点击火爆商品");
+            BaseRouter.router.navigateTo(context, "/detail?id=${val['goodsId']}");
           },
           child: Container(
             width: ScreenUtil().setWidth(372),

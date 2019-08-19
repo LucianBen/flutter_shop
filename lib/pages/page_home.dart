@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shop/router/base_router.dart';
 import 'package:flutter_shop/service/service_method.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -118,9 +119,15 @@ class MySwiper extends StatelessWidget {
       child: Swiper(
         itemCount: swiperDataList.length,
         itemBuilder: (BuildContext context, int index) {
-          return Image.network(
-            "${swiperDataList[index]['image']}",
-            fit: BoxFit.fill,
+          return InkWell(
+            onTap: () {
+              BaseRouter.router.navigateTo(
+                  context, "/detail?id=${swiperDataList[index]['goodsId']}");
+            },
+            child: Image.network(
+              "${swiperDataList[index]['image']}",
+              fit: BoxFit.fill,
+            ),
           );
         },
         pagination: SwiperPagination(),
@@ -249,9 +256,12 @@ class Recommend extends StatelessWidget {
   }
 
   //单个商品布局
-  Widget _item(index) {
+  Widget _item(context, index) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        BaseRouter.router.navigateTo(
+            context, "/detail?id=${recommendList[index]['goodsId']}");
+      },
       child: Container(
         height: ScreenUtil().setHeight(330),
         width: ScreenUtil().setWidth(250),
@@ -283,7 +293,7 @@ class Recommend extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: recommendList.length,
         itemBuilder: (context, index) {
-          return (_item(index));
+          return (_item(context, index));
         },
       ),
     );
@@ -302,7 +312,7 @@ class Floor extends StatelessWidget {
     return Column(
       children: <Widget>[
         _FloorTitle(picture_address: floorTitle),
-        _FloorContent(floorGoodsList: floorContent),
+        _FloorContent(context,floorGoodsList: floorContent),
       ],
     );
   }
@@ -316,18 +326,18 @@ class Floor extends StatelessWidget {
   }
 
   //楼层商品列表
-  Widget _FloorContent({floorGoodsList}) {
+  Widget _FloorContent(context,{floorGoodsList}) {
     return Container(
       child: Column(
         children: <Widget>[
           //楼层商品列表 第一层
           Row(
             children: <Widget>[
-              _goodItem(floorGoodsList[0]),
+              _goodItem(context,floorGoodsList[0]),
               Column(
                 children: <Widget>[
-                  _goodItem(floorGoodsList[1]),
-                  _goodItem(floorGoodsList[2]),
+                  _goodItem(context,floorGoodsList[1]),
+                  _goodItem(context,floorGoodsList[2]),
                 ],
               )
             ],
@@ -335,8 +345,8 @@ class Floor extends StatelessWidget {
           //楼层商品列表 第二层
           Row(
             children: <Widget>[
-              _goodItem(floorGoodsList[3]),
-              _goodItem(floorGoodsList[4]),
+              _goodItem(context,floorGoodsList[3]),
+              _goodItem(context,floorGoodsList[4]),
             ],
           ),
         ],
@@ -344,12 +354,13 @@ class Floor extends StatelessWidget {
     );
   }
 
-  Widget _goodItem(Map goods) {
+  Widget _goodItem(context,Map goods) {
     return Container(
       width: ScreenUtil().setWidth(375),
       child: InkWell(
         onTap: () {
-          print("点击了楼层商品");
+          BaseRouter.router
+              .navigateTo(context, "/detail?id=${goods['goodsId']}");
         },
         child: Image.network(goods['image']),
       ),
