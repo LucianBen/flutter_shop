@@ -6,15 +6,28 @@ import 'package:flutter_shop/service/service_method.dart';
 
 class DetailsGoodProvider with ChangeNotifier {
   DetailsModel goodInfo = null;
+  bool isLeft = true;
+  bool isRight = false;
 
   //从后台获取数据
   getGoodInfo(String id) {
     var formData = {'goodId': id};
     request('getGoodDetailById', formData: formData).then((val) {
       var data = json.decode(val.toString());
-//      print("===请求商品详情数据=====\n" + val.toString());
       goodInfo = DetailsModel.fromJson(data);
       notifyListeners();
     });
+  }
+
+  //tabBar（详情、评论）的切换
+  switchLeftOrRight(String switchState) {
+    if (switchState == 'left') {
+      isLeft = true;
+      isRight = false;
+    } else {
+      isLeft = false;
+      isRight = true;
+    }
+    notifyListeners();
   }
 }
