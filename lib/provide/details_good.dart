@@ -10,9 +10,9 @@ class DetailsGoodProvider with ChangeNotifier {
   bool isRight = false;
 
   //从后台获取数据
-  getGoodInfo(String id) {
+  getGoodInfo(String id) async {
     var formData = {'goodId': id};
-    request('getGoodDetailById', formData: formData).then((val) {
+    await request('getGoodDetailById', formData: formData).then((val) {
       var data = json.decode(val.toString());
       goodInfo = DetailsModel.fromJson(data);
       notifyListeners();

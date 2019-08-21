@@ -7,12 +7,15 @@ import 'package:flutter_shop/router/base_router.dart';
 import 'package:provide/provide.dart';
 
 import 'pages/index_page.dart';
+import 'provide/cart.dart';
 
 void main() {
   var providers = Providers()
-    ..provide(Provider<CategoryChild>.value(CategoryChild()))
-    ..provide(Provider<CategoryChildGood>.value(CategoryChildGood()))
-    ..provide(Provider<DetailsGoodProvider>.value(DetailsGoodProvider()));
+    ..provide(Provider<CategoryChildProvider>.value(CategoryChildProvider()))
+    ..provide(
+        Provider<CategoryChildGoodProvider>.value(CategoryChildGoodProvider()))
+    ..provide(Provider<DetailsGoodProvider>.value(DetailsGoodProvider()))
+    ..provide(Provider<CartProvider>.value(CartProvider()));
 
   return runApp(ProviderNode(
     child: MyApp(),

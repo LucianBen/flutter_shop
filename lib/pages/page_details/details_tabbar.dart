@@ -41,10 +41,10 @@ class DetailsTabbar extends StatelessWidget {
             color: Colors.white,
             border: Border(
                 bottom: BorderSide(
-                    width: 1, color: isLeft ? Colors.pink : Colors.black12))),
+                    width: 1, color: isLeft ? Colors.pink : Colors.black54))),
         child: Text(
           "详情",
-          style: TextStyle(color: isLeft ? Colors.pink : Colors.black12),
+          style: TextStyle(color: isLeft ? Colors.pink : Colors.black54),
         ),
       ),
     );

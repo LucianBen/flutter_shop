@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/model/Category.dart';
+import 'package:flutter_shop/model/category.dart';
 
-class CategoryChild with ChangeNotifier {
+class CategoryChildProvider with ChangeNotifier {
   List<BxMallSubDto> categoryChildList = [];
   int childIndex = 0; //子类高亮索引
   String categoryId = '4'; //大类的Id
