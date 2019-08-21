@@ -21,7 +21,7 @@ class CartProvider with ChangeNotifier {
     tempList.forEach((item) {
       if (item['goodId'] == goodId) {
         tempList[ival]['goodCount'] = item['goodCount'] + 1;
-        cartList[ival].count++;
+        cartList[ival].goodCount++;
         isHave = true;
       }
       ival++;
