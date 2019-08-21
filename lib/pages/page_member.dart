@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'page_member/member_order.dart';
+import 'page_member/member_other.dart';
 import 'page_member/member_top.dart';
 
 /**
