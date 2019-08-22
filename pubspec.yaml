@@ -33,6 +33,7 @@ dependencies:
   fluro: ^1.5.1
   flutter_html: ^0.9.6
   shared_preferences: ^0.5.3+4
+  amap_base: ^0.3.5
 
 dev_dependencies:
   flutter_test:

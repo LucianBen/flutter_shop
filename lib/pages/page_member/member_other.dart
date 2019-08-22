@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shop/pages/page_amap/amap.dart';
 
 /***
  *  个人中心 我的订单 & 其他入口
@@ -26,7 +27,7 @@ class MemberOrder extends StatelessWidget {
           ),
           _listTile(10, Icon(Icons.card_membership), "领取优惠券", topMargin: 10.0),
           _listTile(11, Icon(Icons.card_membership), "已领取优惠券"),
-          _listTile(12, Icon(Icons.location_on), "地址管理"),
+          _listTile(12, Icon(Icons.location_on), "地址管理", context: context),
           _listSubTile(Icon(Icons.phone), "客服管理", "0393-8800315"),
           _listTile(21, Icon(Icons.phone), "关于我们"),
         ],
@@ -35,10 +36,15 @@ class MemberOrder extends StatelessWidget {
   }
 
   Widget _listTile(int index, Icon iconLeading, String text,
-      {double topMargin = 0.00}) {
+      {double topMargin = 0.00, BuildContext context}) {
     return InkWell(
       onTap: () {
-        print("ListTile---------->$index");
+        if (index == 12) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Amap()));
+        } else {
+          print("ListTile---------->$index");
+        }
       },
       child: Container(
         margin: EdgeInsets.only(top: topMargin),
@@ -81,7 +87,6 @@ class MemberOrder extends StatelessWidget {
       ),
     );
   }
-
 
   Widget _columnLayout(int index, String text, Icon icon) {
     return InkWell(
