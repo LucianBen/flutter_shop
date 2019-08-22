@@ -33,7 +33,8 @@ class CartProvider with ChangeNotifier {
         "goodName": goodName,
         "goodCount": goodCount,
         "goodPrice": goodPrice,
-        "goodImages": goodImages
+        "goodImages": goodImages,
+        "isCheck": true,
       };
 
       tempList.add(newGood);
@@ -62,7 +63,7 @@ class CartProvider with ChangeNotifier {
     cartList = [];
 
     if (cartString != null) {
-      List<Map> tempList = (json.encode(cartString) as List).cast();
+      List<Map> tempList = (json.decode(cartString) as List).cast();
       tempList.forEach((item) {
         cartList.add(CartModel.fromJson(item));
       });
