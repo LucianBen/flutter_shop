@@ -6,7 +6,7 @@ class CartBottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: ScreenUtil().setHeight(132),
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(8),
       color: Colors.white,
       child: Row(
         children: <Widget>[
@@ -69,7 +69,7 @@ class CartBottom extends StatelessWidget {
 //付款按钮
   Widget _payButton(int count) {
     return Container(
-      padding: EdgeInsets.only(left: 15,top:5,right: 10,bottom: 5),
+      padding: EdgeInsets.only(left: 15, top: 5, right: 10, bottom: 5),
       width: ScreenUtil().setWidth(180),
       child: InkWell(
         onTap: () {},

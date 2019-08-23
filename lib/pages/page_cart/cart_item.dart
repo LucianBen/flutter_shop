@@ -12,8 +12,8 @@ class CartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(5, 2, 5, 2),
-      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      margin: EdgeInsets.all(2),
+      padding: EdgeInsets.fromLTRB(0, 8, 8, 8),
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border(
@@ -21,7 +21,7 @@ class CartItem extends StatelessWidget {
           )),
       child: Row(
         children: <Widget>[
-          _checkboxButton(context,item),
+          _checkboxButton(context, item),
           _goodImage(item),
           _goodName(item),
           _goodPrice(item),
@@ -31,7 +31,7 @@ class CartItem extends StatelessWidget {
   }
 
   //单选框
-  Widget _checkboxButton(context,item) {
+  Widget _checkboxButton(context, item) {
     return Container(
       child: Checkbox(
         value: item.isCheck,
@@ -56,11 +56,14 @@ class CartItem extends StatelessWidget {
   //商品名称 & 数量
   Widget _goodName(item) {
     return Container(
-      padding: EdgeInsets.all(10),
-      width: ScreenUtil().setWidth(300),
+      padding: EdgeInsets.all(8),
+      width: ScreenUtil().setWidth(320),
       alignment: Alignment.topLeft,
       child: Column(
-        children: <Widget>[Text(item.goodName), CartCount()],
+        children: <Widget>[
+          Text(item.goodName,maxLines: 2),
+          CartCount(),
+        ],
       ),
     );
   }
@@ -82,7 +85,7 @@ class CartItem extends StatelessWidget {
             child: InkWell(
               onTap: () {},
               child:
-                  Icon(Icons.delete_forever, color: Colors.black26, size: 30),
+                  Icon(Icons.delete_forever, color: Colors.black26, size: 20),
             ),
           )
         ],

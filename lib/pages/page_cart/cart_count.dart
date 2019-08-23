@@ -5,7 +5,7 @@ class CartCount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: ScreenUtil().setWidth(175),
+      width: ScreenUtil().setWidth(180),
       margin: EdgeInsets.only(top: 5),
       decoration:
           BoxDecoration(border: Border.all(width: 1, color: Colors.black12)),
