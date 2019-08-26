@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shop/provide/cart.dart';
+import 'package:provide/provide.dart';
 
 class CartBottom extends StatelessWidget {
   @override
@@ -8,24 +10,34 @@ class CartBottom extends StatelessWidget {
       height: ScreenUtil().setHeight(132),
       padding: EdgeInsets.all(8),
       color: Colors.white,
-      child: Row(
-        children: <Widget>[
-          _selectAllButton(),
-          _allPrice("10088720"),
-          _payButton(4),
-        ],
+      child: Provide<CartProvider>(
+        builder: (context, child, val) {
+          double allGoodsPrice =
+              Provide.value<CartProvider>(context).allGoodsPrice;
+          int allGoodsCount =
+              Provide.value<CartProvider>(context).allGoodsCount;
+          return Row(
+            children: <Widget>[
+              _selectAllButton(context),
+              _allPrice(allGoodsPrice),
+              _payButton(allGoodsCount),
+            ],
+          );
+        },
       ),
     );
   }
 
   //全选勾选框
-  Widget _selectAllButton() {
+  Widget _selectAllButton(context) {
     return Row(
       children: <Widget>[
         Checkbox(
-          value: true,
+          value: Provide.value<CartProvider>(context).isAllCheck,
           activeColor: Colors.pink,
-          onChanged: (val) {},
+          onChanged: (val) {
+            Provide.value<CartProvider>(context).changeAllCheckBtnState(val);
+          },
         ),
         Text("全选")
       ],
