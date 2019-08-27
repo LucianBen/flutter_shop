@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/provide/category_child.dart';
 import 'package:flutter_shop/provide/category_child_good.dart';
+import 'package:flutter_shop/provide/current_index.dart';
 import 'package:flutter_shop/provide/details_good.dart';
 import 'package:flutter_shop/router/base_router.dart';
 import 'package:provide/provide.dart';
@@ -15,7 +16,8 @@ void main() {
     ..provide(
         Provider<CategoryChildGoodProvider>.value(CategoryChildGoodProvider()))
     ..provide(Provider<DetailsGoodProvider>.value(DetailsGoodProvider()))
-    ..provide(Provider<CartProvider>.value(CartProvider()));
+    ..provide(Provider<CartProvider>.value(CartProvider()))
+    ..provide(Provider<CurrentIndexProvider>.value(CurrentIndexProvider()));
 
   return runApp(ProviderNode(
     child: MyApp(),

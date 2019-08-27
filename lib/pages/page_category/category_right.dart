@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop/model/category_goods.dart';
 import 'package:flutter_shop/provide/category_child.dart';
 import 'package:flutter_shop/provide/category_child_good.dart';
+import 'package:flutter_shop/router/base_router.dart';
 import 'package:flutter_shop/service/service_method.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provide/provide.dart';
@@ -98,7 +99,9 @@ class _CategoryGoodsState extends State<CategoryGoods> {
   Widget _goodList(List goodList, index) {
     return InkWell(
       onTap: () {
-        print("点击了商品");
+        print("点击了商品 ${goodList[index].goodsId}");
+        BaseRouter.router
+            .navigateTo(context, "/detail?id=${goodList[index].goodsId}");
       },
       child: Container(
         padding: EdgeInsets.only(top: 5, bottom: 5),
